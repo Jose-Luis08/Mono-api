@@ -1,6 +1,17 @@
 version: '3.8'
  
 services:
+    mono-api:
+      image: joseluis008/711-mono-api:latest
+      container_name: mono-api
+      environment:
+        PORT: ${PORT}
+        MONGO_URL: ${MONGO_URL_DOCKER}
+        MONGO_DB: ${MONGO_DB}
+      ports:
+        - "3000:3000"
+      depends_on:
+        - mongo
 
     # mono-api:
     #       build: .
